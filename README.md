@@ -21,7 +21,7 @@
   <p align="center">
     TicTacFlow: A vibrant and engaging online Tic Tac Toe platform that brings together casual and competitive gameplay with a sense of community and flow.
     <br />
-    <a href="https://github.com/Pavkv/TicTacFlow"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Pavkv/TicTacFlow/blob/master/README.md"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://tictacflow.azurewebsites.net">View Demo</a>
@@ -139,7 +139,7 @@ Project Link: [Tic Tac Flow]([https://tictacflow.azurewebsites.net])
 [issues-shield]: https://img.shields.io/github/issues/Pavkv/PlayStationStoreDiscountBot.svg?style=for-the-badge
 [issues-url]: https://github.com/Pavkv/PlayStationStoreDiscountBot/issues
 [license-shield]: https://img.shields.io/github/license/Pavkv/PlayStationStoreDiscountBot.svg?style=for-the-badge
-[license-url]: https://github.com/Pavkv/PlayStationStoreDiscountBot/blob/master/LICENSE.txt
+[license-url]: https://github.com/Pavkv/TicTacFlow/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/pavel-zobov-3a6365230/
 [product-screenshot]: images\example_screenshot.png
