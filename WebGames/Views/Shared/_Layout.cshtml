@@ -1,0 +1,43 @@
+﻿@using System.Web.Mvc.Html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Tic Tac Toe - @ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            @Html.ActionLink("Tic Tac Toe", "Game", "Game", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Leaderboard", "Leaderboard", "Game")</li>
+                @if (!User.Identity.IsAuthenticated)
+                {
+                    <li>@Html.ActionLink("Login", "Login", "Account")</li>
+                    <li>@Html.ActionLink("Sign In", "SignIn", "Account")</li>
+                }
+                else
+                {
+                    <li>@Html.ActionLink(User.Identity.Name + " - Logout", "Logout", "Account")</li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container body-content">
+    @RenderBody()
+    <footer>
+        <p>&copy; @DateTime.Now.2024 - WEB GAMES .NET APPlICATION</p>
+    </footer>
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", false)
+</body>
+</html>

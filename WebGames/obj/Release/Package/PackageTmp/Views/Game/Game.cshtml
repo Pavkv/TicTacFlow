@@ -1,0 +1,163 @@
+﻿@model WebGames.Models.Game
+
+@{
+    ViewBag.Title = "Game";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe Game</title>
+    <style>
+        .tic-tac-toe-board {
+            max-width: 650px;
+            height: 650px;
+            margin: 20px auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 5px;
+            background-size: contain;
+        }
+        .tic-tac-toe-cell {
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            border: 1px solid #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 4em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="choiceSideSection">
+    <h2>Choose your side</h2>
+    <button onclick="chooseSide('X')">
+        <img src="@Url.Content("~/Content/images/tic.png")" alt="Tic" style="width: 50px; height: 50px;"/>
+    </button>
+    <button onclick="chooseSide('O')">
+        <img src="@Url.Content("~/Content/images/tac.png")" alt="Tic" style="width: 50px; height: 50px;"/>
+    </button>
+</div>
+<div id="choiceDifficultySection">
+    <h2>Choose AI difficulty</h2>
+    <button onclick="chooseDifficulty('Easy')">Easy</button>
+    <button onclick="chooseDifficulty('Medium')">Medium</button>
+    <button onclick="chooseDifficulty('Hard')">Hard</button>
+</div>
+<h2>Game Board</h2>
+<div class="tic-tac-toe-board">
+    @for (var row = 0; row < 3; row++)
+    {
+        for (var col = 0; col < 3; col++)
+        {
+            <div class="tic-tac-toe-cell" data-x="@row" data-y="@col" onclick="cellClicked(this)"></div>
+        }
+    }
+</div>
+<button onclick="resetGame()" class="reset-game-button">Reset Game</button>
+
+
+<script>
+
+        window.addEventListener('beforeunload', resetGame);
+        
+        const ticImageUrl = '@Url.Content("~/Content/images/tic.png")';
+        const tacImageUrl = '@Url.Content("~/Content/images/tac.png")';
+        
+        function chooseSide(side) {
+            $.ajax({
+                url: '@Url.Action("ChooseSide", "Game")',
+                type: 'POST',
+                data: { side: side },
+                success: function (response) {
+                    alert(response.message)
+                    if (response.success) {
+                        document.getElementById('choiceSideSection').style.display = 'none';
+                        document.getElementById('choiceDifficultySection').style.display = 'block';
+                        if (response.AIMoved) {
+                            AIMove(response.AImoveRow, response.AImoveCol, response.User);
+                        }
+                    } else {
+                        alert(response.message);
+                    }
+                }
+            });
+        }
+        
+        function chooseDifficulty(difficulty) {
+            $.ajax({
+                url: '@Url.Action("ChooseDifficulty", "Game")',
+                type: 'POST',
+                data: { difficulty: difficulty },
+                success: function (response) {
+                    if (response.success) {
+                        alert(response.message)
+                        document.getElementById('choiceDifficultySection').style.display = 'none';
+                        if (response.AIMoved) {
+                            AIMove(response.AImoveRow, response.AImoveCol, response.User);
+                        }
+                    } else {
+                        alert(response.message);
+                    }
+                }
+            });
+        }
+
+        function cellClicked(cell) {
+            let x = cell.getAttribute('data-x');
+            let y = cell.getAttribute('data-y');
+            if (cell.querySelector('img')) {
+                alert('Cell already clicked');
+                return;
+            }
+            $.ajax({
+                url: '@Url.Action("Game", "Game")',
+                type: 'POST',
+                data: { row: x, col: y },
+                success: function (response) {
+                    if (response.success) {
+                        alert(response.User)
+                        if (response.AIMoved) {
+                            AIMove(response.AImoveRow, response.AImoveCol, response.User);
+                        }
+                        cell.appendChild(document.createElement("img")).src = response.User === "X" ? ticImageUrl : tacImageUrl;
+                        if (response.gameOver) {
+                           alert(response.message);
+                        }
+                    } else {
+                        alert(response.message);
+                    }
+                }
+            });
+        }
+        
+        function AIMove(row, col, player){
+            document.querySelector(`.tic-tac-toe-cell[data-x="${row}"][data-y="${col}"]`).appendChild(document.createElement
+            ("img")).src = player === "X" ? tacImageUrl : ticImageUrl;
+        }
+       
+        
+        function resetGame() {
+            $.ajax({
+                url: '@Url.Action("ResetGame", "Game")',
+                type: 'POST',
+                success: function (response) {
+                    if (response.success) {
+                        document.getElementById('choiceSideSection').style.display = 'block';
+                        document.getElementById('choiceDifficultySection').style.display = 'block';
+                        document.querySelector('.tic-tac-toe-board').querySelectorAll('img').forEach(img => img.remove());
+                    } else {
+                        alert('Failed to reset game');
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
