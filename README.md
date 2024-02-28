@@ -16,19 +16,19 @@
     <img src="images/logo.webp" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">PlayStation Store Discount Bot</h3>
+<h3 align="center">TicTacFlow</h3>
 
   <p align="center">
-    A Telegram bot for tracking PlayStation Store game discounts and managing game wishlists.
+    TicTacFlow: A vibrant and engaging online Tic Tac Toe platform that brings together casual and competitive gameplay with a sense of community and flow.
     <br />
-    <a href="https://github.com/Pavkv/PlayStationStoreDiscountBot"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Pavkv/TicTacFlow"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/Pavkv/PlayStationStoreDiscountBot">View Demo</a>
+    <a href="https://tictacflow.azurewebsites.net">View Demo</a>
     ·
-    <a href="https://github.com/Pavkv/PlayStationStoreDiscountBot/issues">Report Bug</a>
+    <a href="https://github.com/Pavkv/TicTacFlow/issues">Report Bug</a>
     ·
-    <a href="https://github.com/Pavkv/PlayStationStoreDiscountBot/issues">Request Feature</a>
+    <a href="https://github.com/Pavkv/TicTacFlow/issues">Request Feature</a>
   </p>
 </div>
 
@@ -65,9 +65,13 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<img src="images/example_screenshot.png" alt="example">
+**Game Board**
+<img src="images/example_screenshot_1.png" alt="example">
 
-The PS Store Bot is a Telegram bot designed to help users keep track of PlayStation Store game discounts, manage their wishlist of games, and receive updates on price changes. It leverages the PlatPrices API for real-time data on game prices and discounts.
+**Leaderboard**
+<img src="images/example_screenshot_2.png" alt="example">
+
+TicTacFlow is a dynamic online platform designed to revolutionize the classic Tic Tac Toe game, offering an immersive experience that caters to both casual players and competitive enthusiasts. It features customizable game difficulties, user authentication for progress tracking, and a global leaderboard, all set within a community-focused environment that encourages interaction, strategy sharing, and continuous play.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -76,82 +80,35 @@ The PS Store Bot is a Telegram bot designed to help users keep track of PlayStat
 <!-- GETTING STARTED -->
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+Welcome to TicTacFlow, the ultimate online Tic Tac Toe experience that connects players from around the globe in a competitive and interactive environment. Whether you're a casual player looking to pass the time or a competitive spirit seeking a challenge, TicTacFlow offers something for everyone. Follow this guide to get started and dive into the fun.
 
-### Prerequisites
+### Create an Account
 
-This is an example of how to list things you need to use the software and how to install them.
-* Python 3.6+
-* SQLite3
-* A Telegram bot token (You can get one through <a href="https://t.me/BotFather">BotFather</a> on Telegram)
-* A PlatPrices API key (You can get one by signing up on the <a href="#https://platprices.com/developers.php">Plat Prices</a> website)
+* **Visit the TicTacFlow Website:** Open your preferred web browser and navigate to the TicTacFlow platform.
+* **Sign Up:** Click on the "Sign Up" button on the homepage. Fill in the registration form with your details, including a nickname and a secure password.
+* **Log In:** Return to the TicTacFlow website and log in with your new credentials.
 
-### Installation
+### Choose Your Game Mode
 
-1. Clone the repo
-   ```sh
-   git clone https://github.com/Pavkv/PlayStationStoreDiscountBot
-   ```
-3. Install required packages
-   ```sh
-   pip install -r requirements.txt
-   ```
-4. Set up environment variables in `.env` file
-   ```sh
-    TELEGRAM_TOKEN=your_telegram_bot_token
-    API_KEY=your_platprices_api_key
-    DATABASE_URL=your_database_url
-   ```
-5. Initialize the database
-   ```sh
-   python init_db.py
-   ```
-6. Run the bot
-   ```sh
-    python bot.py
-    ```
+1. Choose a side
+   * **X or O:** Select your preferred side to play as, X or O.
+2. Choose a difficulty
+    * **Easy, Medium, or Hard:** Select the difficulty level that best suits your skill level and experience.
+
+### Start Playing
+
+* **Gameplay:** Click on the board to place your X or O. The goal is to get three in a row horizontally, vertically, or diagonally before your opponent.
+* **Leaderboard:** Track your progress and compare your scores with other players on the global leaderboard.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- USAGE EXAMPLES -->
-## Usage
+## Support and Feedback
 
-After starting the bot, you can interact with it on Telegram:
+If you encounter any issues or have suggestions for improving TicTacFlow, please reach out to our support team through the github page. We value your feedback and strive to make TicTacFlow the best online Tic Tac Toe platform.
 
-* Send /start to begin interacting with the bot.
-* Follow the prompts to add games to your wishlist, delete games, or check for current discounts.
+Welcome to the community, and enjoy your time with TicTacFlow – where the classic game of Tic Tac Toe meets modern connectivity and competition.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- Scheduled Tasks -->
-## Scheduled Tasks
-
-The bot automatically checks for discounts on wishlist games every Monday at 13:00 UTC. Ensure the bot is running to receive these notifications.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- Logging -->
-## Logging
-
-The bot logs its operations and errors to PSStoreBot.log. Check this file for troubleshooting and monitoring bot activity.
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- LICENSE -->
 ## License
@@ -161,13 +118,12 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-
 <!-- CONTACT -->
 ## Contact
 
 Pasha Zobov - [Linked In](https://www.linkedin.com/in/pavel-zobov-3a6365230/)
 
-Project Link: [https://github.com/Pavkv/PlayStationStoreDiscountBot]([https://github.com/Pavkv/PlayStationStoreDiscountBot])
+Project Link: [Tic Tac Flow]([https://tictacflow.azurewebsites.net])
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
