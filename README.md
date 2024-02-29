@@ -12,7 +12,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/Pavkv/PlayStationStoreDiscountBot">
+  <a href="https://tictacflow.azurewebsites.net">
     <img src="images/logo.webp" alt="Logo" width="80" height="80">
   </a>
 
