@@ -15,9 +15,9 @@ namespace WebGames.tests
         [Fact]
         public void SignIn_WithValidModelAndNonExistingUser_RedirectsToLogin()
         {
-            var model = new SignIn { Username = "test", Password = "password" };
+            var model = new SignUp { Username = "test", Password = "password" };
 
-            var result = _controller.SignIn(model) as RedirectToRouteResult;
+            var result = _controller.SignUp(model) as RedirectToRouteResult;
 
             Assert.NotNull(result);
             Assert.Equal("Login", result.RouteValues["action"]);
@@ -27,9 +27,9 @@ namespace WebGames.tests
         [Fact]
         public void SignIn_WithInvalidModel_ReturnsViewWithModel()
         {
-            var model = new SignIn { Username = "", Password = "password" };
+            var model = new SignUp { Username = "", Password = "password" };
 
-            var result = _controller.SignIn(model) as ViewResult;
+            var result = _controller.SignUp(model) as ViewResult;
 
             Assert.NotNull(result);
             Assert.Equal(model, result.Model);
@@ -38,10 +38,10 @@ namespace WebGames.tests
         [Fact]
         public void SignIn_WithExistingUser_ReturnsViewWithModel()
         {
-            var model = new SignIn { Username = "existingUser", Password = "password" };
+            var model = new SignUp { Username = "existingUser", Password = "password" };
             _mockDb.Setup(db => db.UserAccounts.Any(u => u.Username == model.Username)).Returns(true);
 
-            var result = _controller.SignIn(model) as ViewResult;
+            var result = _controller.SignUp(model) as ViewResult;
 
             Assert.NotNull(result);
             Assert.Equal(model, result.Model);

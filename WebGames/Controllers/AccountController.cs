@@ -14,7 +14,7 @@ namespace WebGames.Controllers
         /// </summary>
         /// <param name="model">The sign in model.</param>
         /// <returns>An ActionResult that redirects to the login action if successful, otherwise returns the view with the model.</returns>
-        public ActionResult SignIn(SignIn model)
+        public ActionResult SignUp(SignUp model)
         {
             if (!ModelState.IsValid || UserExists(model.Username))
             {
@@ -68,7 +68,7 @@ namespace WebGames.Controllers
         /// Creates a new user.
         /// </summary>
         /// <param name="model">The sign in model.</param>
-        private void CreateUser(SignIn model)
+        private void CreateUser(SignUp model)
         {
             _db.UserAccounts.Add(new UserAccount
             {

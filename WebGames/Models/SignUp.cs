@@ -3,9 +3,9 @@
 namespace WebGames.Models
 {
     /// <summary>
-    /// Represents a sign in model in the WebGames application.
+    /// Represents a sign up model in the WebGames application.
     /// </summary>
-    public class SignIn
+    public class SignUp
     {
         /// <summary>
         /// Gets or sets the username of the user.
